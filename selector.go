@@ -12,7 +12,7 @@ type Selector interface {
 // Tounament selection selects a group of individuals of size tournamentSize
 // completely at random from the population, then the fittest individual is
 // selected from that group, the lower the group size the higher the selection
-// pressure on weak individuals, this is often desirable.
+// pressure on weak individuals, this can be quite desirable.
 type TournamentSelection struct {
 	nParents int
 	tounamentSize int

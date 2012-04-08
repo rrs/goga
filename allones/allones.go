@@ -1,7 +1,6 @@
 package main
 
 import (
-	//"fmt"
 	"runtime"
 	"math/rand"
 	"time"
@@ -24,8 +23,8 @@ func main() {
 	t := time.Now()
 	rand.Seed(t.Unix())
 
-	initialiser := goga.NewBoolInitialiser()
-	evaluator := goga.NewBoolEvaluator(N_GENES)
+	initialiser := NewBoolInitialiser()
+	evaluator := NewBoolEvaluator(N_GENES)
 	//selector := goga.NewRouletteSelection(N_PARENTS)
 	selector := goga.NewTournamentSelection(N_PARENTS, TOURNAMENT_SIZE)
 	crosser := goga.NewUniformCrossover(Cp, N_GENES)
