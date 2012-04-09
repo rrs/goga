@@ -25,12 +25,13 @@ func Evolve(
 	p := make(Population, popSize, popSize + 1)
 	// initialise the population
 	initialiser.Init(p, nGenes)
-	
+
 	// main loop
+	exit := false
 	for i := 0; i < nRuns; i++ {
-		// evaluate the current population, all check for
+		// evaluate the current population, and check for
 		// termination condition, exit if condition is met
-		p, exit := evaluator.Evaluate(p)
+		p, exit = evaluator.Evaluate(p)
 		if (exit) {
 			// print the final population, if required
 			if printPop {

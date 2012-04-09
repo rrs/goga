@@ -15,8 +15,9 @@ type Initialiser interface {
 	Init(p Population, nGenes int)
 }
 
-// handles problem specific evaluation, takes a pointer to
-// allow the evaluator to apply elitism
+// handles problem specific evaluation returns a bool value to alert
+// the caller to succesfully achieving the termination condition and
+// retuns Population to allow the use of elitism (see allones example)
 type Evaluator interface {
 	Evaluate(p Population) (Population, bool)
 }

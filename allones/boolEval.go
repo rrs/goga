@@ -8,10 +8,15 @@ type BoolEvaluator struct {
 	maxValue int
 }
 
-func (evaluator *BoolEvaluator) Evaluate(p goga.Population) (goga.Population, bool) {
+func (e *BoolEvaluator) Evaluate(p goga.Population) (goga.Population, bool) {
 	// start by setting the best individual we have found to
 	// the first individual
 	best := p[0]
+	popSize := len(p)
+	if popSize % 2 > 0 {
+		p = p[:len(p) - 1]
+		popSize -= 1
+	}
 	for _, individual := range p {
 		fitness := 0
 		// total up the value of all the genes
@@ -31,19 +36,18 @@ func (evaluator *BoolEvaluator) Evaluate(p goga.Population) (goga.Population, bo
 	// once finished check if the best of this population
 	// has met the termination criteria, in this case its
 	// easy, let he caller know if we have 
-	if (best.Fitness == evaluator.maxValue) {
+	if (best.Fitness == e.maxValue) {
 		return p, true
 	}
 	// check if the best fitness from this population
 	// is worse than our overall best so far and re-insert
 	// the overall best, otherwise check if its better and
 	// set it to be the new best
-	popSize := len(p)
-	if best.Fitness < evaluator.best.Fitness {
+	if best.Fitness < e.best.Fitness {
 		p = p[0:popSize + 1]
-		p[popSize] = &evaluator.best
-	} else if best.Fitness > evaluator.best.Fitness {
-		evaluator.best = *best
+		p[popSize] = &e.best
+	} else if best.Fitness > e.best.Fitness {
+		e.best = *best
 	}
 
 	return p, false
