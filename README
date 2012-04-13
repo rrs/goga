@@ -1,6 +1,6 @@
 This genetic algorithm is designed to minimise the problem specific code from a genetic algorithm. The three interfaces Gene, Initialiser, an Evaluator need to be implemented for each problem.
-By keeping the contents of genes abstract in the majority of the code it allows for most of the algorithm to be generic. Problems arrise for example if you have a individual with differnt types of genes and use a crossover method that does not maintain gene positions. A custom crossover function could be used.
+By keeping the contents of genes abstract in the majority of the code it allows for most of the algorithm to be generic. Problems arrise for example if you have a individual with different types of genes and use a crossover method that does not maintain gene positions. A custom crossover function could be used.
 
-Any suggestions to the logic or implemention of the code are welcome.
+Any suggestions to the logic or implementation of the code are welcome. email the.luggage@hotmail.com
 
-godocs http://gopkgdoc.appspot.com/pkg/github.com/rrs/goga
+godocs @ http://gopkgdoc.appspot.com/pkg/github.com/rrs/goga
